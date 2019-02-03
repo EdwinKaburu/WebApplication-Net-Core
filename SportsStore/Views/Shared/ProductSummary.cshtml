@@ -1,0 +1,26 @@
+﻿@model MusicProduct;
+
+@{
+    //Byte data for both music and photos
+    string imgMusic = string.Format("data:image/gif;base64,{0}", Convert.ToBase64String(Model.MusicPicture.PictureFirst));
+
+    string audio = string.Format("data:audio/mpeg;base64,{0}", Convert.ToBase64String(Model.MusicData.MusicDatas));
+
+    <div class="card text-white mb-3" style="background-color:#32383e">
+        <img src="@imgMusic" class="card-img" height="350" width="789">
+        <div class="card-body">
+            <h5 class="card-title">@Model.MusicName</h5>
+            <p class="card-text">@Model.Artist.ArtistDescription</p>
+            <p class="card-text"><small class="text-muted">@Model.GenreCategory.GenreName</small></p>
+            <audio controls src="@audio"></audio>
+        </div>
+    </div>
+    @*<div class="card text-white mb-3" style="background-color:#32383e">
+       
+        <div class="card-body">
+            <h5 class="card-title">@Model.MusicName</h5>
+            <audio controls src="@audio"></audio>
+        </div>
+    </div>*@
+}
+

@@ -1,0 +1,84 @@
+﻿body {
+    background-color: #1b2838 !important;
+    color: #ffffff;
+}
+/* Add a gray background color and some padding to the footer */
+footer {
+    background-color: #f2f2f2;
+    padding: 25px;
+}
+
+.carousel-inner img {
+    width: 100%; /* Set width to 100% */
+    min-height: 200px;
+}
+
+/* Hide the carousel text when the screen is less than 600 pixels wide */
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none;
+    }
+}
+
+#discount1 {
+    background-color: #1b2838;
+}
+
+#btn1:hover {
+    background-color: #388209;
+}
+
+#btn1 {
+    background-color: #808080;
+    float: right;
+}
+
+#btn2 {
+    background-color: #808080;
+}
+
+    #btn2:hover {
+        background-color: #388209;
+    }
+
+#na1:hover {
+    background-color: #388209;
+    content: '$25.00' !important;
+    visibility: visible;
+}
+
+#na1 {
+    background-color: #808080;
+}
+
+#text_one {
+    float: left;
+}
+/*#entire_div1 {
+            border: 2px solid red;
+            padding: 10px;
+            border-radius: 25px;
+        }*/
+#signaturetitle {
+    font-weight: bold;
+    text-align: center;
+    font-size: 150%;
+}
+
+#signature {
+    width: 100%;
+    border: 50px;
+    border-bottom: 1px solid black;
+    height: 30px;
+}
+
+.navbar {
+    position: relative;
+}
+
+.brand {
+    position: absolute;
+    left: 50%;
+    margin-left: -50px !important;
+    display: block;
+}

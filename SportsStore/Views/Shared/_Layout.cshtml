@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+   
+    
+    @*<style>
+        body {
+            background-color: #0A0035;
+        }
+        #viewContainer{
+            background-color:#353535;
+        }
+    </style>*@
+
+    <environment include="Development">
+        <link rel="stylesheet"
+              asp-href-include="/lib/bootstrap/dist/**/*.min.css"
+              asp-href-exclude="**/*-reboot*,**/*-grid*" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <title>SportsStore</title>
+</head>
+<body>
+    <div class="container body-center" id="viewContainer">
+        <div class="navbar navbar-inverse bg-inverse" role="navigation">
+            <a class="navbar-brand" href="#">Music Store</a>
+        </div>
+        <div class="row m-1 p-1">
+            <div id="categories" class="col-3">
+                List of Music You Perfer
+            </div>
+            <div class="col-9">
+                @RenderBody()
+            </div>
+        </div>
+
+        <hr />
+        <footer class="container-fluid text-center" style="background-color:#1e1e1e;">
+            <div>
+                &copy; 2019 Music Store All rights reserved. All trademarks are property of their respective owners in the US and other countries.
+                VAT included in all prices where applicable.
+               
+            </div>
+        </footer>
+    </div>
+   
+
+</body>
+</html>
