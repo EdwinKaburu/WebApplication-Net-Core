@@ -6,7 +6,7 @@
 
     string audio = string.Format("data:audio/mpeg;base64,{0}", Convert.ToBase64String(Model.MusicData.MusicDatas));
 
-    <div class="card text-white mb-3" style="background-color:#32383e">
+    @*<div class="card text-white mb-3" style="background-color:#32383e">
         <img src="@imgMusic" class="card-img" height="350" width="789">
         <div class="card-body">
             <h5 class="card-title">@Model.MusicName</h5>
@@ -14,13 +14,36 @@
             <p class="card-text"><small class="text-muted">@Model.GenreCategory.GenreName</small></p>
             <audio controls src="@audio"></audio>
         </div>
-    </div>
-    @*<div class="card text-white mb-3" style="background-color:#32383e">
-       
-        <div class="card-body">
-            <h5 class="card-title">@Model.MusicName</h5>
-            <audio controls src="@audio"></audio>
-        </div>
     </div>*@
+
+    <form id="@Model.MusicID" asp-action="AddToCart" asp-controller="Cart" method="post">
+        <input type="hidden" asp-for="MusicID" />
+        <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+        <div class="card text-white mb-3" style="background-color:#32383e">
+            <img src="@imgMusic" class="card-img" height="350" width="789">
+            <div class="card-body">
+                <h5 class="card-title">@Model.MusicName</h5>
+                <p class="card-text">@Model.Artist.ArtistDescription</p>
+                <p class="card-text">
+                    <small class="text-muted">@Model.GenreCategory.GenreName</small>
+                    <button type="submit" class="btn btn-success btn-sm " style="float:right">
+                        Add To Cart 
+                    </button>
+                </p>
+                <audio controls src="@audio"></audio>
+            </div>
+        </div>
+    </form>
+
+    @*<form id="@Model.ProductID" asp-action="AddToCart" asp-controller="Cart" method="post">
+        <input type="hidden" asp-for="ProductID"/>
+        <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()"/>
+        <span class="card-text p-1">
+            @Model.Description
+            <button type="submit" class="btn btn-success btn-sm " style="float:right">
+                Add To Cart
+            </button>
+        </span>
+    </form>*@
 }
 

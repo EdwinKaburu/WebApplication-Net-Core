@@ -18,5 +18,6 @@ namespace SportsStore.Models.ViewModels
         public IEnumerable<MusicProduct> Products { get; set; }
         public IEnumerable<MusicPicture> Pictures { get; set; }
         public PagingInfo PagingInfo { get; set; }
+        public string CurrentCategory { get; set; }
     }
-}
+} 

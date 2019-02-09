@@ -1,0 +1,11 @@
+﻿@model CartIndexViewModel
+
+<div class="text-center">
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Shopping</a>
+</div>
+@{ 
+    @foreach(var item in Model.Cart.Lines)
+    {
+        <p>@item.Product.MusicName</p>
+    }
+}

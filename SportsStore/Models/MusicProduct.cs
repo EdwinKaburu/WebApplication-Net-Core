@@ -28,13 +28,15 @@ namespace SportsStore.Models
 
         public string MusicName { get; set; }
 
-        public int? MusicPictureID { get; set; }
+        public int? MusicPictureID { get; set; } 
 
         public int? GenreID { get; set; } 
 
         public int? ArtistID { get; set; }
 
         public int? MusicDataID { get; set; }
+
+        public decimal? Price { get; set; } // To be Changed Later On
 
         public virtual Artist Artist { get; set; }
 

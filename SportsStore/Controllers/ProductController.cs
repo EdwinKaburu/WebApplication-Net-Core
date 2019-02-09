@@ -19,16 +19,17 @@ namespace SportsStore.Controllers
         public ProductController(IProductRepository repo)
         {
             repository = repo;
-        }
+        } 
         /*
          * This Method Get the Music Picture along with the Music Data and the Artist and the Genre Category
          * It is best if the ---Method -- is asynchronous becuase of performance and load time 
          * 
          */
-        public ViewResult List(int productPage = 1) => View(new ProductsListViewModel
+        public ViewResult List(string category, int productPage = 1) => View(new ProductsListViewModel
         {
             //Returns a View with the Products  and Performs the Pagiantions Process of DataGrid 
             Products = repository.MusicProducts.Include(m => m.MusicPicture).Include(d => d.MusicData).Include(a => a.Artist).Include(g => g.GenreCategory).Include(a => a.Artist)
+            .Where(p => category == null || p.GenreCategory.GenreName == category)
             .OrderBy(p => p.MusicID)
             .Skip((productPage - 1) * PageSize)
             .Take(PageSize),
@@ -36,8 +37,9 @@ namespace SportsStore.Controllers
             {
                 CurrentPage = productPage,
                 ItemsPerPage = PageSize,
-                TotalItems = repository.MusicProducts.Count()
-            }
+                TotalItems = category == null ? repository.MusicProducts.Count():repository.MusicProducts.Where(e => e.GenreCategory.GenreName == category).Count()
+            },
+            CurrentCategory = category
         });
     }
 }

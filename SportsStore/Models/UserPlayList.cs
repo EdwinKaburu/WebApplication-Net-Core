@@ -20,10 +20,12 @@ namespace SportsStore.Models
         public int PlaylistID { get; set; }
 
         public string PlaylistName { get; set; }
-
+         
         public int? UserID { get; set; }
 
-        public int? MusicID { get; set; } 
+        public int? MusicID { get; set; }
+        
+        public int? Quantity { get; set; } // To be Changed Later 
 
         public virtual MusicProduct MusicProduct { get; set; }
 
