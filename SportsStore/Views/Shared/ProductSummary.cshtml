@@ -1,6 +1,4 @@
 ﻿@model MusicProduct;
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@addTagHelper SportsStore.Infrastructure.*, SportsStore
 @{
     //Byte data for both music and photos
     string imgMusic = string.Format("data:image/gif;base64,{0}", Convert.ToBase64String(Model.MusicPicture.PictureFirst));
