@@ -32,12 +32,7 @@ namespace SportsStore.Models
     //    public virtual void Clear() => lineCollection.Clear();
     //    public virtual IEnumerable<UserPlayList> lines => lineCollection;
     //}
-    public class CartLine
-    {
-        public int CartLineID { get; set; }
-        public MusicProduct Product { get; set; }
-        public int Quantity { get; set; }
-    }
+ 
     public class Cart
     {
         private List<CartLine> lineCollection = new List<CartLine>();
@@ -63,5 +58,11 @@ namespace SportsStore.Models
         public virtual decimal ComputeTotalValue() => lineCollection.Sum(e => Convert.ToDecimal(e.Product.Price) * Convert.ToDecimal(e.Quantity));
         public virtual void Clear() => lineCollection.Clear();
         public virtual IEnumerable<CartLine> Lines => lineCollection;
+    }
+    public class CartLine
+    {
+        public int CartLineID { get; set; }
+        public MusicProduct Product { get; set; }
+        public int Quantity { get; set; }
     }
 }
