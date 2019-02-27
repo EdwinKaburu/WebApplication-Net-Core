@@ -27,6 +27,8 @@ namespace SportsStore.Models
         
         public int? Quantity { get; set; } // To be Changed Later 
 
+        public int? GiftWrap { get; set; }
+
         public virtual MusicProduct MusicProduct { get; set; }
 
         public virtual UserDb UserDb { get; set; }
