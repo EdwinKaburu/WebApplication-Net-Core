@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace SportsStore.Models
 {
@@ -25,6 +28,7 @@ namespace SportsStore.Models
         public virtual DbSet<MusicProduct> MusicProducts { get; set; }
         public virtual DbSet<UserDb> UserDbs { get; set; }
         public virtual DbSet<UserPlayList> UserPlayLists { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

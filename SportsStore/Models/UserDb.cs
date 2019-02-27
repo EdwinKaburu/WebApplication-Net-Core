@@ -33,6 +33,11 @@ namespace SportsStore.Models
         public string UserEmail { get; set; }
 
         public int? GenreID { get; set; }
+        public int? StreetAddress { get; set; }
+        public int? City{ get; set; }
+        public int? State { get; set; }
+        public int? Country { get; set; }
+
 
         public virtual GenreCategory GenreCategory { get; set; }
 
