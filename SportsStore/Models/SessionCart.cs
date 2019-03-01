@@ -29,6 +29,11 @@ namespace SportsStore.Models
             base.AddItem(product, quantity);
             Session.SetJson("Cart", this);
         }
+        public override void RemoveLine(MusicProduct product)
+        {
+            base.RemoveLine(product);
+            Session.SetJson("Cart", this);
+        }
 
         public override void Clear()
         {

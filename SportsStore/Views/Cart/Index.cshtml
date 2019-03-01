@@ -22,7 +22,7 @@
                 <td>
                     <form asp-action="RemoveFromCart" method="post">
                         <input type="hidden" name="ProductID"
-                               value="@item.Product.MusicDataID" />
+                               value="@item.Product.MusicID" />
                         <input type="hidden" name="returnUrl"
                                value="@Model.ReturnUrl" />
                         <button type="submit" class="btn btn-sm btn-danger">

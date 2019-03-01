@@ -52,15 +52,15 @@ namespace SportsStore.Controllers
             return RedirectToAction("Index", new { returnUrl }); 
         }
 
-        private void SaveCart(Cart cart)
-        {
-            HttpContext.Session.SetJson("Cart", cart);
-        }
+        //private void SaveCart(Cart cart)
+        //{
+        //    HttpContext.Session.SetJson("Cart", cart);
+        //}
 
-        private Cart GetCart()
-        {
-            Cart cart = HttpContext.Session.GetJson<Cart>("Cart") ?? new Cart();
-            return cart;
-        }
+        //private Cart GetCart()
+        //{
+        //    Cart cart = HttpContext.Session.GetJson<Cart>("Cart") ?? new Cart();
+        //    return cart;
+        //}
     }
 }
