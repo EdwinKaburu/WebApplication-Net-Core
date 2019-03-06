@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace SportsStore.Models
 {
@@ -33,14 +34,22 @@ namespace SportsStore.Models
         public string UserEmail { get; set; }
 
         public int? GenreID { get; set; }
-        public int? StreetAddress { get; set; }
-        public int? City{ get; set; }
-        public int? State { get; set; }
-        public int? Country { get; set; }
 
+        public string Address { get; set; }
+
+        public string City { get; set; }
+
+        public string State { get; set; }
+
+        public int Zip { get; set; }
+
+        public string Country { get; set; }
+
+        public bool Shipped { get; set; }
 
         public virtual GenreCategory GenreCategory { get; set; }
 
+        [BindNever]
         public virtual ICollection<UserPlayList> UserPlayLists { get; set; }
     }
 }

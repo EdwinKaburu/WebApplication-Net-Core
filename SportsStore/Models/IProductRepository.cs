@@ -9,6 +9,10 @@ namespace SportsStore.Models
     {
         IQueryable<MusicProduct> MusicProducts{ get; }
         IQueryable<MusicPicture> MusicPictures { get; }
+
+        void SaveProduct(MusicProduct product);
+
+        MusicProduct DeleteProduct(int productID);
     }
 }
  

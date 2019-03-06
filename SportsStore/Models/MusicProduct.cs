@@ -26,6 +26,7 @@ namespace SportsStore.Models
         [Key]
         public int MusicID { get; set; }
 
+        [Required(ErrorMessage = "Please Enter a Music Name")]
         public string MusicName { get; set; }
 
         public int? MusicPictureID { get; set; } 
@@ -36,6 +37,8 @@ namespace SportsStore.Models
 
         public int? MusicDataID { get; set; }
 
+        [Required]
+        [Range (0.01, double.MaxValue, ErrorMessage = "Please Enter a postive price")]
         public decimal? Price { get; set; } // To be Changed Later On
 
         public virtual Artist Artist { get; set; }

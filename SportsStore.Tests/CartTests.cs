@@ -42,12 +42,12 @@ namespace SportsStore.Tests
             target.AddItem(p1, 1);
             target.AddItem(p2, 1);
             //This line in the book reads  -- >    CartLine[] results = target.Lines.ToArray();
-            CartLine[] results = target.Lines.ToArray();
+            UserPlayList[] results = target.Lines.ToArray();
 
             //Assert
             Assert.Equal(2, results.Count());
-            Assert.Equal(p1, results[0].Product);
-            Assert.Equal(p2, results[1].Product);
+            Assert.Equal(p1, results[0].MusicProduct);
+            Assert.Equal(p2, results[1].MusicProduct);
             
         }
         [Fact]
@@ -80,7 +80,7 @@ namespace SportsStore.Tests
             target.AddItem(p1, 1);
             target.AddItem(p2, 1);
             target.AddItem(p1, 10);
-            CartLine[] results = target.Lines.OrderBy(c => c.Product.MusicID).ToArray();
+            UserPlayList[] results = target.Lines.OrderBy(c => c.MusicProduct.MusicID).ToArray();
 
             //Assert
             Assert.Equal(2, results.Length);

@@ -29,6 +29,7 @@ namespace SportsStore.Models
 
         public string GenreName { get; set; }
 
+        [Required(ErrorMessage = "Please Enter a Genre Description")]
         public string GenreDescription { get; set; }
 
         public virtual ICollection<MusicProduct> MusicProducts { get; set; }

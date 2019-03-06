@@ -28,7 +28,7 @@ namespace SportsStore.Models
         public virtual DbSet<MusicProduct> MusicProducts { get; set; }
         public virtual DbSet<UserDb> UserDbs { get; set; }
         public virtual DbSet<UserPlayList> UserPlayLists { get; set; }
-        public DbSet<Order> Orders { get; set; }
+      //  public DbSet<Order> Orders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

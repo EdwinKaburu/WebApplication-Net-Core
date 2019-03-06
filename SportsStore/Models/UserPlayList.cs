@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace SportsStore.Models
 {
@@ -20,14 +21,12 @@ namespace SportsStore.Models
         public int PlaylistID { get; set; }
 
         public string PlaylistName { get; set; }
-         
+
         public int? UserID { get; set; }
 
         public int? MusicID { get; set; }
-        
-        public int? Quantity { get; set; } // To be Changed Later 
 
-        public int? GiftWrap { get; set; }
+        public int? Quantity { get; set; } 
 
         public virtual MusicProduct MusicProduct { get; set; }
 

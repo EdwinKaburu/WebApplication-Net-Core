@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 namespace SportsStore.Models
 {
     /*
@@ -23,6 +24,7 @@ namespace SportsStore.Models
 
         public string ArtistName { get; set; }
 
+        [Required(ErrorMessage = "Please Enter an Description")]
         public string ArtistDescription { get; set; }
 
         public int? ArtistPictureID { get; set; }

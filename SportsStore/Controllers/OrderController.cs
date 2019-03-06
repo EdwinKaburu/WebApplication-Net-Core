@@ -17,10 +17,25 @@ namespace SportsStore.Controllers
             repository = repoService;
             cart = cartService;
         }
-        public ViewResult Checkout() => View(new Order());
+
+        public ViewResult List() => View(repository.Orders.Where(o => !o.Shipped));
 
         [HttpPost]
-        public IActionResult Checkout(Order order)
+        public IActionResult MarkShipped(int orderID)
+        {
+            UserDb order = repository.Orders.FirstOrDefault(o => o.UserID == orderID);
+            if(order != null)
+            {
+                order.Shipped = true;
+                repository.SaveOrder(order);
+            }
+            return RedirectToAction(nameof(List));
+        }
+
+        public ViewResult Checkout() => View(new UserDb());
+
+        [HttpPost]
+        public IActionResult Checkout(UserDb order)
         {
             if(cart.Lines.Count() == 0)
             {
@@ -28,7 +43,7 @@ namespace SportsStore.Controllers
             }
             if(ModelState.IsValid)
             {
-                order.Lines = cart.Lines.ToArray();
+                order.UserPlayLists = cart.Lines.ToArray();
                 repository.SaveOrder(order);
                 return RedirectToAction(nameof(Completed));
             }

@@ -15,17 +15,19 @@ namespace SportsStore.Models
         {
             context = ctx;
         }
+        //public IQueryable<UserPlayList> Orders => context.Orders.Include(o => o.Lines)
+        //    .ThenInclude(l => l.Product);
 
-        public IQueryable<Order> Orders => context.Orders
-            .Include(o => o.Lines)
-            .ThenInclude(l => l.Product);
+        public IQueryable<UserDb> Orders => context.UserDbs
+           .Include(o => o.UserPlayLists)
+           .ThenInclude(l => l.MusicProduct);
 
-        public void SaveOrder(Order order)
+        public void SaveOrder(UserDb order)
         {
-            context.AttachRange(order.Lines.Select(l => l.Product));
-            if (order.OrderID == 0)
+            context.AttachRange(order.UserPlayLists.Select(l => l.MusicProduct));
+            if (order.UserID== 0)
             {
-                context.Orders.Add(order);
+                context.UserDbs.Add(order);
             }
             context.SaveChanges();
         }
