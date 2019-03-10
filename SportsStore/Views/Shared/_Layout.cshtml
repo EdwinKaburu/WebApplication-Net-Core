@@ -28,10 +28,16 @@
         <div class="navbar navbar-inverse bg-inverse" role="navigation">
             
             <div class="row">
-                <a class="navbar-brand" href="#">Music Store</a>
-                <div class="col-4 text-right">
-                     @await Component.InvokeAsync("CartSummary")
+                <div class="col">
+                    <a class="navbar-brand" asp-action="List" asp-controller="Product">Music Store</a>
                 </div>
+                <div class="col-md-auto">
+                    <a class="navbar-brand" asp-action="Index" asp-controller="Admin">Admin Section</a>
+                </div>
+                <div class="col col-lg-2" >
+                    @await Component.InvokeAsync("CartSummary")
+                </div>
+
             </div>
         </div>
         <div class="row m-1 p-1">

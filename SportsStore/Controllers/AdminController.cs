@@ -30,7 +30,7 @@ namespace SportsStore.Controllers
             //   IQueryable<MusicProduct>  Products = repository.MusicProducts.Where(x => x.MusicID == MusicID).Include(a => a.Artist);
             //  return View(Products);
 
-            return View(repository.MusicProducts.Include(a => a.Artist).FirstOrDefault(p => p.MusicID == MusicID));
+            return View(repository.MusicProducts.Include(a => a.Artist).Include(g => g.GenreCategory).FirstOrDefault(p => p.MusicID == MusicID));
         }
         [HttpPost]
         public IActionResult Edit(MusicProduct product)

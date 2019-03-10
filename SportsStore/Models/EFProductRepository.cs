@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,7 +27,7 @@ namespace SportsStore.Models
             }
             else
             {
-                MusicProduct dbEntry = context.MusicProducts.FirstOrDefault(p => p.MusicID == product.MusicID);
+                MusicProduct dbEntry = context.MusicProducts.Include(a => a.Artist).Include(g => g.GenreCategory).FirstOrDefault(p => p.MusicID == product.MusicID);
                 if(dbEntry != null)
                 {
                     dbEntry.MusicName = product.MusicName;
