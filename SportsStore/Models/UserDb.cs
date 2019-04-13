@@ -51,5 +51,7 @@ namespace SportsStore.Models
 
         [BindNever]
         public virtual ICollection<UserPlayList> UserPlayLists { get; set; }
+
+        public string ReturnUrl { get; set; }
     }
 }

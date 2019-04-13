@@ -1,0 +1,27 @@
+﻿@model UserDb
+@{
+    ViewBag.Title = "Log In";
+    Layout = "_AdminLayout";
+}
+
+<div class="text-danger" asp-validation-summary="All">
+
+</div>
+<form asp-action="Login" asp-controller="Account" method="post">
+<input type="hidden" asp-for="ReturnUrl"/>
+    <div class="form-group">
+        <label asp-for="UserName"></label>
+        <div>
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+         <input asp-for="UserName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="UserPassword"></label>
+        <div>
+            <span asp-validation-for="UserPassword" class="text-danger"></span>
+        </div>
+        <input asp-for="UserPassword" class="form-control"/>
+    </div>
+    <button class="btn btn-primary" type="submit">Log In </button>
+</form>
